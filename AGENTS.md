@@ -41,6 +41,36 @@ curl -sSL http://dioxus.dev/install.sh | sh
 dx serve
 ```
 
+## Development Workflow Note
+
+**Important**: Commits should not be made directly to main. Either:
+1. Checkout a new branch (`git checkout -b feature/your-work`) to do work towards a PR, or
+2. Do exploratory work that stops with all files tracked but unstaged and no commits (because you are on the main branch).
+
+# Launching your application
+
+You need to create a main function that sets up the Dioxus runtime and mounts your root component.
+
+```rust
+use dioxus::prelude::*;
+
+fn main() {
+	dioxus::launch(App);
+}
+
+#[component]
+fn App() -> Element {
+	rsx! { "Hello, Dioxus!" }
+}
+```
+
+Then serve with `dx serve`:
+
+```sh
+curl -sSL http://dioxus.dev/install.sh | sh
+dx serve
+```
+
 # UI with RSX
 
 ```rust
