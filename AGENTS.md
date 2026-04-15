@@ -2,7 +2,9 @@ You are an expert [0.7 Dioxus](https://dioxuslabs.com/learn/0.7) assistant. Diox
 
 Provide concise code examples with detailed descriptions
 
-# Dioxus Dependency
+
+## Dioxus Setup
+# Dioxus Dependency# Dioxus Dependency
 
 You can add Dioxus to your `Cargo.toml` like this:
 
@@ -17,7 +19,9 @@ webview = ["dioxus/desktop"]
 server = ["dioxus/server"]
 ```
 
-# Launching your application
+
+## Application Launch
+# Launching your application# Launching your application
 
 You need to create a main function that sets up the Dioxus runtime and mounts your root component.
 
@@ -40,14 +44,14 @@ Then serve with `dx serve`:
 curl -sSL http://dioxus.dev/install.sh | sh
 dx serve
 ```
-
-## Development Workflow Note
 
 **Important**: Commits should not be made directly to main. Either:
 1. Checkout a new branch (`git checkout -b feature/your-work`) to do work towards a PR, or
 2. Do exploratory work that stops with all files tracked but unstaged and no commits (because you are on the main branch).
 
-# Launching your application
+
+## Application Launch
+# Launching your application# Launching your application
 
 You need to create a main function that sets up the Dioxus runtime and mounts your root component.
 
@@ -71,7 +75,9 @@ curl -sSL http://dioxus.dev/install.sh | sh
 dx serve
 ```
 
-# UI with RSX
+
+## UI Development with RSX
+# UI with RSX# UI with RSX
 
 ```rust
 rsx! {
@@ -94,7 +100,9 @@ rsx! {
 }
 ```
 
-# Assets
+
+## Asset Management
+# Assets# Assets
 
 The asset macro can be used to link to local files to use in your project. All links start with `/` and are relative to the root of your project.
 
@@ -107,7 +115,9 @@ rsx! {
 }
 ```
 
-## Styles
+
+## Styling
+## Styles# Styles
 
 The `document::Stylesheet` component will inject the stylesheet into the `<head>` of the document
 
@@ -119,7 +129,9 @@ rsx! {
 }
 ```
 
-# Components
+
+## Component Development
+# Components# Components
 
 Components are the building blocks of apps
 
@@ -154,7 +166,9 @@ Each component accepts function arguments (props)
 * Props must implement `PartialEq` and `Clone`.
 * To make props reactive and copy, you can wrap the type in `ReadOnlySignal`. Any reactive state like memos and resources that read `ReadOnlySignal` props will automatically re-run when the prop changes.
 
-# State
+
+## State Management
+# State# State
 
 A signal is a wrapper around a value that automatically tracks where it's read and written. Changing a signal's value causes code that relies on the signal to rerun.
 
@@ -208,7 +222,9 @@ fn Child() -> Element {
 }
 ```
 
-# Async
+
+## Async Operations
+# Async# Async
 
 For state that depends on an asynchronous operation (like a network request), Dioxus provides a hook called `use_resource`. This hook manages the lifecycle of the async task and provides the result to your component.
 
@@ -228,7 +244,9 @@ match dog() {
 }
 ```
 
-# Routing
+
+## Routing
+# Routing# Routing
 
 All possible routes are defined in a single Rust `enum` that derives `Routable`. Each variant represents a route and is annotated with `#[route("/path")]`. Dynamic Segments can capture parts of the URL path as parameters by using `:name` in the route string. These become fields in the enum variant.
 
@@ -264,7 +282,9 @@ fn App() -> Element {
 dioxus = { version = "0.7.1", features = ["router"] }
 ```
 
-# Fullstack
+
+## Fullstack Development
+# Fullstack# Fullstack
 
 Fullstack enables server rendering and ipc calls. It uses Cargo features (`server` and a client feature like `web`) to split the code into a server and client binaries.
 
